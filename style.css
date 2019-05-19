@@ -20,6 +20,13 @@ h2 {
    font-family: 'Roboto Condensed', sans-serif;
 }
 
+h3 {
+   color:#000000;
+   font-size: 1.3em;
+   margin-left: 20px;
+   font-family: 'Roboto Condensed', sans-serif;
+}
+
 p {
    color:#000000;
    line-height: 150%;
@@ -36,3 +43,10 @@ name {
    font-family: 'Roboto Condensed', sans-serif;
 }
 
+table {
+  border-collapse: collapse;
+  width: 100%; /* Ширина таблицы */
+ .col1 { width: 60px; }
+ .coln { width: 60px; }
+
+}
