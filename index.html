@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kulikov Dmitrii</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0f0f0f;
+            color: #33ff33;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        .terminal {
+            max-width: 900px;
+            width: 100%;
+            border: 2px solid #33ff33;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(51, 255, 51, 0.2);
+            background-color: #0a0a0a;
+        }
+
+        .header {
+            border-bottom: 1px solid #33ff33;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .header pre {
+            color: #33ff33;
+            font-size: 12px;
+            line-height: 1.2;
+        }
+
+        .output {
+            margin-bottom: 20px;
+        }
+
+        .line {
+            margin-bottom: 8px;
+        }
+
+        .prompt {
+            color: #33ff33;
+            font-weight: bold;
+        }
+
+        .command {
+            color: #ffffff;
+        }
+
+        .response {
+            color: #cccccc;
+            margin-left: 25px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 2px solid #33ff33;
+        }
+
+        .response a {
+            color: #33ff33;
+            text-decoration: none;
+            border-bottom: 1px dashed #33ff33;
+        }
+
+        .response a:hover {
+            color: #ffffff;
+            border-bottom: 1px solid #ffffff;
+        }
+
+        .input-area {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            border-top: 1px solid #33ff33;
+            padding-top: 20px;
+        }
+
+        .input-prompt {
+            color: #33ff33;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        #command-input {
+            background: transparent;
+            border: none;
+            color: #33ff33;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            flex-grow: 1;
+            outline: none;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: #33ff33;
+            animation: blink 1s infinite;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: transparent;
+            border: 2px solid #33ff33;
+            color: #33ff33;
+            padding: 12px 24px;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+            margin: 20px 0 10px 0;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .download-btn:hover {
+            background-color: #33ff33;
+            color: #0a0a0a;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #33ff33;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+<div class="terminal">
+    <div class="header">
+            <pre>
+╔══════════════════════════════════════════════════════════╗
+║     DMITRII KULIKOV :: QA/DEV :: v1.1                    ║
+╚══════════════════════════════════════════════════════════╝
+            </pre>
+    </div>
+
+    <div class="output" id="output">
+        <div class="line"><span class="prompt">$</span> <span class="command">whoami</span></div>
+        <div class="response">
+            > Dmitrii Kulikov<br>
+            > Sr. QA | Junior Dev <br>
+            > Qualified IT Engineer Since 2016' <br>
+        </div>
+
+        <div class="line"><span class="prompt">$</span> <span class="command">skills --tech</span></div>
+        <div class="response">
+            > Docker • K8S • Minikube<br>
+            > SQLite • PostgreSQL<br>
+            > Git • Linux • Bash • CI/CD<br>
+            > Golang • PHP<br>
+        </div>
+
+        <div class="line"><span class="prompt">$</span> <span class="command">ls -la projects/</span></div>
+        <div class="response">
+            > <a href="https://github.com/kulikovdmitr/duty-bot" target="_blank">duty-bot/</a>         - Telegram bot for shift management (Go/Sqlite + Pachka)<br>
+        </div>
+
+        <div class="line"><span class="prompt">$</span> <span class="command">cat contact.txt</span></div>
+        <div class="response">
+            > Telegram: <a href="https://t.me/kulikovdmitr">@kulikovdmitr</a><br>
+            > GitHub: <a href="https://github.com/kulikovdmitr">github.com/kulikovdmitr</a><br>
+            > Email: <a href="mailto:dmtrmsc@gmail.com">Mail</a></br>
+            > LinkedIn: <a href="https://www.linkedin.com/in/kulikovdmitr/">LinkedIn</a></br>
+            > Habr: <a href="https://habr.com/ru/users/kulykovdmytr/">Habr</a></br>
+            > Medium <a href="https://dmytrokulykov.medium.com/">Medium</a>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin: 30px 0;">
+        <a href="resume.pdf" download class="download-btn">⏻ DOWNLOAD CV / RESUME [y/n]</a>
+        <div style="color: #33ff33; margin-top: 10px; font-size: 14px;">
+            Press Y for Download · Press N for cancel
+        </div>
+    </div>
+
+    <div class="input-area">
+        <span class="input-prompt">$</span>
+        <input type="text" id="command-input" placeholder="type 'help' for commands..." autofocus>
+        <span class="cursor"></span>
+    </div>
+
+    <div class="footer">
+        > Last update: March 2026<br>
+        > System: GitHub Pages / Static terminal<br>
+        > Enter 'help'
+    </div>
+</div>
+
+<script>
+    const input = document.getElementById('command-input');
+    const output = document.getElementById('output');
+
+    const commands = {
+        help: () => {return [
+            "Доступные команды:",
+            "  about       - информация обо мне",
+            "  skills      - список технологий",
+            "  projects    - мои проекты",
+            "  contact     - как связаться",
+            "  clear       - очистить экран",
+            "  download    - Download",
+            "  github      - GitHub",
+            "  date        - текущая дата",
+            "  whoami      - кто я",
+            "  sudo        ;) nice try"
+        ].join('\n');
+        },
+
+        about: () => {
+            return "Python-разработчик, 24 года. Начинал с автоматизации скучных задач на работе, теперь пишу ботов и API. Люблю чистый код и чёрный кофе.";
+        },
+
+        skills: () => {
+            return "Docker • SQLite • PostgreSQL • Git • Linux ";
+        },
+
+        projects: () => {
+            return "Основные проекты:\n- duty-bot: Telegram бот для расписания дежурных\n";
+        },
+
+        contact: () => {
+            return "Telegram: @kulikovdmitr\nGitHub: github.com/kulikovdmitr\nEmail: dmtrmsc@gmail.com";
+        },
+
+        clear: () => {
+            output.innerHTML = '';
+            return null;
+        },
+
+        download: () => {
+            window.location.href = 'resume.pdf';
+            return "Инициирую скачивание...";
+        },
+
+        github: () => {
+            window.open('https://github.com/username', '_blank');
+            return "Открываю GitHub...";
+        },
+
+        date: () => {
+            return new Date().toString();
+        },
+
+        whoami: () => {
+            return "Алексей Петров, Python Developer";
+        },
+
+        sudo: () => {
+            return "nice try, but you don't have root access here 😉";
+        }
+    };
+
+    input.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            const cmd = input.value.trim().toLowerCase();
+
+            // Добавляем команду в вывод
+            const cmdLine = document.createElement('div');
+            cmdLine.className = 'line';
+            cmdLine.innerHTML = `<span class="prompt">$</span> <span class="command">${input.value}</span>`;
+            output.appendChild(cmdLine);
+
+            // Обрабатываем команду
+            if (cmd in commands) {
+                const result = commands[cmd]();
+                if (result) {
+                    const responseLine = document.createElement('div');
+                    responseLine.className = 'response';
+                    responseLine.innerHTML = result.replace(/\n/g, '<br>');
+                    output.appendChild(responseLine);
+                }
+            } else if (cmd === '') {
+                // Пустая команда - ничего не делаем
+            } else {
+                const errorLine = document.createElement('div');
+                errorLine.className = 'response';
+                errorLine.style.color = '#ff5555';
+                errorLine.innerHTML = `bash: ${cmd}: command not found. Try 'help'`;
+                output.appendChild(errorLine);
+            }
+
+            // Очищаем input
+            input.value = '';
+
+            // Скроллим вниз
+            output.scrollTop = output.scrollHeight;
+        }
+    });
+
+    // Обработка клавиш y/n для скачивания
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'y' || e.key === 'Y') {
+            window.location.href = 'resume.pdf';
+        } else if (e.key === 'n' || e.key === 'N') {
+            alert('¯\\_(ツ)_/¯ OK. Maybe next time!');
+        }
+    });
+
+    // Фокус на инпуте при клике где угодно
+    document.addEventListener('click', function() {
+        input.focus();
+    });
+</script>
+</body>
+</html>
